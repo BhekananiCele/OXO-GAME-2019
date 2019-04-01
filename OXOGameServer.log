@@ -1,0 +1,15 @@
+OXO Game Server Started: 2019-04-01 16:34:19.032804
+*** OXO GAME SERVER STARTED ***
+Waiting for client connections.
+Connected Client 0: ('127.0.0.1', 52857)
+Connected Client 1: ('196.24.150.229', 63225)
+Sent Message Client 1: new game,X
+Sent Message Client 0: new game,O
+Sent Message Client 1: your move
+Sent Message Client 0: opponents move
+ERROR:[WinError 10054] An existing connection was forcibly closed by the remote host
+
+Game Server is being restarted.
+
+*** OXO GAME SERVER STARTED ***
+Waiting for client connections.
