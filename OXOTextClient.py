@@ -7,7 +7,7 @@ class OXOTextClient(GameClient):
         self.board = [' '] * BOARD_SIZE
         self.shape = None
         self.position= None
-        self.winner=None
+        self.results=None
     def clear_board(self):
         self.board = [' '] * BOARD_SIZE
         
@@ -39,22 +39,25 @@ class OXOTextClient(GameClient):
             print("New game is about to start, your character is "+self.shape)
             #some code missing 
         elif msg=="your move":
-            pass #code missing     
+            self.send_message(self.input_move())     
         elif msg=="opponents move":
-            pass #code missing 
+            print("It's the opponent turn to move") #self.send_message(self.input_move())  
         elif msg[:msg.find(",")]=="valid move":
             self.shape=msg[-3]
             self.position=msg[-1]
-            #some code missing 
+            self.board[self.position]= self.shape
+            self.display_board()
         elif msg=="invalid move":
-            pass #code missing 
+            print("You have entered an invalid move")
+            self.send_message(self.input_move()) 
         elif msg[:msg.find(",")]=="game over":
-            self.winner=msg[-1]
-            #some code missing 
+            self.results=msg[-1]
+            if self.result=="X" or self.result=="O" :print("Game over the winner is "+self.results) 
+            else: print("Game over it is a Tie")
         elif msg=="play again":
-            pass #code missing 
+            self.send_message(self.input_play_again())
         elif msg=="exit game":
-            pass #code missing     
+            print("Game exited")    
     
     def play_loop(self):
         while True:
@@ -64,15 +67,14 @@ class OXOTextClient(GameClient):
             
 def main():
     otc = OXOTextClient()
-    #otc.display_board()
     while True:
         try:
             otc.connect_to_server(otc.input_server())
             break
         except:
             print('Error connecting to server!')
+    otc.display_board()
     otc.play_loop()
-    
     input('Press click to exit.')
         
 main()
