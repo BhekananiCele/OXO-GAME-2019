@@ -37,6 +37,7 @@ class OXOTextClient(GameClient):
         if msg[:msg.find(",")]=="new game":
             self.shape=msg[-1]
             print("New game is about to start, your character is "+self.shape)
+            #some code missing 
         elif msg=="your move":
             pass #code missing     
         elif msg=="opponents move":
@@ -44,10 +45,12 @@ class OXOTextClient(GameClient):
         elif msg[:msg.find(",")]=="valid move":
             self.shape=msg[-3]
             self.position=msg[-1]
+            #some code missing 
         elif msg=="invalid move":
             pass #code missing 
         elif msg[:msg.find(",")]=="game over":
             self.winner=msg[-1]
+            #some code missing 
         elif msg=="play again":
             pass #code missing 
         elif msg=="exit game":
