@@ -1,6 +1,6 @@
 from GameClient import *
-# Just added this
-#Matthew here
+import time
+
 class OXOTextClient(GameClient):
 
     def __init__(self):
@@ -9,6 +9,7 @@ class OXOTextClient(GameClient):
         self.shape = None
         self.position= None
         self.results=None
+        self.answer=None
     def clear_board(self):
         self.board = [' '] * BOARD_SIZE
         
@@ -36,33 +37,33 @@ class OXOTextClient(GameClient):
     def handle_message(self,msg):
         #conditions that will match the messages from  the sever and perform necessary steps
         if msg[:msg.find(",")]=="new game":
-            self.shape=msg[-1]
-            print("New game is about to start, your character is "+self.shape)
-            self.display_board()
-            #some code missing 
+            self.shape=msg[-1] #index shape
+            print("New game is about to start, your character is "+self.shape) #lets the players know their shape
+            self.display_board() #display_board method called to display the board
         elif msg=="your move":
-            print("It's your turn to move")
-            self.send_message(int(self.input_move()))  
-        elif msg=="opponents move":
-            print("It's the opponent turn to move") #self.send_message(self.input_move())  
+            print("It's your turn to move") #lets the players know their turn to move
+            self.send_message(self.input_move())  #lets the players input their move and sends message to the server
+        elif msg=="opponents move": 
+            print("It's the opponent turn to move") #lets the players know it their opponent turn to move
         elif msg[:msg.find(",")]=="valid move":
-            self.shape=msg[-3]
-            self.position=int(msg[-1])
-            self.board[self.position]= self.shape
-            self.display_board()
+            self.shape=msg[-3] #index shape
+            self.position=int(msg[-1]) #index position
+            self.board[self.position]= self.shape #insert shape to the board
+            self.display_board() #display_board method called to display the board
         elif msg=="invalid move":
-            print("You have entered an invalid move")
-            self.send_message(int(self.input_move()))
+            print("You have entered an invalid move") #lets the player know that an invalid move was made
+            self.send_message(self.input_move()) #lets the players input their move and sends message to the server
         elif msg[:msg.find(",")]=="game over":
-            self.results=msg[-1]
-            if self.result=="X" or self.result=="O" :print("Game over the winner is "+self.results) 
-            else: print("Game over it is a Tie")
+            self.results=msg[-1] #index shape
+            if self.results=="X" or self.results=="O" :print("Game Over, the winner is "+self.results) #lets the players know who is the winner
+            else: print("Game Over, it is a Tie") #lets the players know that no one won, it is a tie
         elif msg=="play again":
-            answer=self.input_play_again()
-            self.send_message(answer)
-            if answer.lower()=="y":self.clear_board()
+            self.answer=self.input_play_again() #Ask the players whether they want to play again
+            self.send_message(self.answer) #lets the players input their answer and sends message to the server
+            if self.answer.lower()=="y":self.clear_board() # clear board if the answer from the player is "y"
         elif msg=="exit game":
-            print("Game exited")    
+            print("Game Closed, One of the players doesn't want to play again.") #lets the players know that the game has been closed
+            time.sleep(3)
     
     def play_loop(self):
         while True:
