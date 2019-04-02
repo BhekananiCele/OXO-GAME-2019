@@ -39,7 +39,8 @@ class OXOTextClient(GameClient):
             print("New game is about to start, your character is "+self.shape)
             #some code missing 
         elif msg=="your move":
-            self.send_message(self.input_move())     
+            print("It's your turn to move")
+            self.input_move()     
         elif msg=="opponents move":
             print("It's the opponent turn to move") #self.send_message(self.input_move())  
         elif msg[:msg.find(",")]=="valid move":
@@ -49,13 +50,14 @@ class OXOTextClient(GameClient):
             self.display_board()
         elif msg=="invalid move":
             print("You have entered an invalid move")
-            self.send_message(self.input_move()) 
+            self.input_move()
         elif msg[:msg.find(",")]=="game over":
             self.results=msg[-1]
             if self.result=="X" or self.result=="O" :print("Game over the winner is "+self.results) 
             else: print("Game over it is a Tie")
         elif msg=="play again":
-            self.send_message(self.input_play_again())
+            self.input_play_again()
+            self.clear_board()
         elif msg=="exit game":
             print("Game exited")    
     

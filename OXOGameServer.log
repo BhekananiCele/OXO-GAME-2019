@@ -1,3 +1,54 @@
-OXO Game Server Started: 2019-04-02 00:09:13.795966
+OXO Game Server Started: 2019-04-02 13:06:48.312240
+*** OXO GAME SERVER STARTED ***
+Waiting for client connections.
+Connected Client 0: ('196.24.147.85', 50048)
+Connected Client 1: ('127.0.0.1', 60998)
+Sent Message Client 0: new game,X
+Sent Message Client 1: new game,O
+Sent Message Client 0: your move
+Sent Message Client 1: opponents move
+Received Message Client 0: 0
+Sent Message Client 0: valid move,X,0
+Sent Message Client 1: valid move,X,0
+Sent Message Client 1: your move
+Sent Message Client 0: opponents move
+ERROR:[WinError 10054] An existing connection was forcibly closed by the remote host
+
+Game Server is being restarted.
+
+*** OXO GAME SERVER STARTED ***
+Waiting for client connections.
+Connected Client 0: ('196.24.147.85', 50107)
+Connected Client 1: ('127.0.0.1', 61000)
+Sent Message Client 0: new game,O
+Sent Message Client 1: new game,X
+Sent Message Client 0: your move
+Sent Message Client 1: opponents move
+Received Message Client 0: 2
+Sent Message Client 0: valid move,O,2
+Sent Message Client 1: valid move,O,2
+Sent Message Client 1: your move
+Sent Message Client 0: opponents move
+ERROR:[WinError 10054] An existing connection was forcibly closed by the remote host
+
+Game Server is being restarted.
+
+*** OXO GAME SERVER STARTED ***
+Waiting for client connections.
+Connected Client 0: ('127.0.0.1', 61006)
+Connected Client 1: ('196.24.147.85', 50245)
+Sent Message Client 0: new game,X
+Sent Message Client 1: new game,O
+Sent Message Client 0: your move
+Sent Message Client 1: opponents move
+Received Message Client 0: 2
+Sent Message Client 0: valid move,X,2
+Sent Message Client 1: valid move,X,2
+Sent Message Client 1: your move
+Sent Message Client 0: opponents move
+ERROR:[WinError 10053] An established connection was aborted by the software in your host machine
+
+Game Server is being restarted.
+
 *** OXO GAME SERVER STARTED ***
 Waiting for client connections.
