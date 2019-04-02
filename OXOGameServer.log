@@ -25,3 +25,9 @@ Game Server is being restarted.
 
 *** OXO GAME SERVER STARTED ***
 Waiting for client connections.
+Connected Client 0: ('127.0.0.1', 61383)
+Connected Client 1: ('196.24.169.154', 53253)
+Sent Message Client 1: new game,X
+Sent Message Client 0: new game,O
+Sent Message Client 1: your move
+Sent Message Client 0: opponents move
