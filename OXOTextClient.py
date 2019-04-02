@@ -38,7 +38,7 @@ class OXOTextClient(GameClient):
         if msg[:msg.find(",")]=="new game":
             self.shape=msg[-1]
             print("New game is about to start, your character is "+self.shape)
-            display_board()
+            self.display_board()
             #some code missing 
         elif msg=="your move":
             print("It's your turn to move")
