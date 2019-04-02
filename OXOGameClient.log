@@ -1,4 +1,7 @@
-OXO Game Client Started: 2019-04-02 14:05:40.907687
+OXO Game Client Started: 2019-04-02 14:14:07.305725
 Connected To Server: localhost
 Received Message: new game,O
-Received Message: opponents move
+Received Message: your move
+Sent Message: 0
+Received Message: valid move,O,0
+OXO Game Client Ended: 2019-04-02 14:14:33.537247
