@@ -52,7 +52,6 @@ class OXOTextClient(GameClient):
             self.display_board() #display_board method called to display the board
         elif msg=="invalid move":
             print("You have entered an invalid move") #lets the player know that an invalid move was made
-            self.send_message(self.input_move()) #lets the players input their move and sends message to the server
         elif msg[:msg.find(",")]=="game over":
             self.results=msg[-1] #index shape
             if self.results=="X" or self.results=="O" :print("Game Over, the winner is "+self.results) #lets the players know who is the winner
@@ -63,7 +62,7 @@ class OXOTextClient(GameClient):
             if self.answer.lower()=="y":self.clear_board() # clear board if the answer from the player is "y"
         elif msg=="exit game":
             print("Game Closed, One of the players doesn't want to play again.") #lets the players know that the game has been closed
-            time.sleep(3)
+            time.sleep(4)
     
     def play_loop(self):
         while True:
