@@ -47,8 +47,9 @@ class oxo_game(QWidget):
         self.your_shape=QLabel() # label to store players shape picture
         self.your_shape.setPixmap(self.X_Shape) #insert picture to the shape label 
         
-        self.user_feedback=QLabel() # label to store users instructions
+        self.user_feedback=QTextEdit() # label to store users instructions
         #formating label
+        #self.user_feedback.moveCursor(QTextCursor.End)
         self.user_feedback.setStyleSheet('color: darkblue')
         self.user_feedback.setFont(QFont("Arial",10,weight=QFont.Bold)) 
           
@@ -159,7 +160,8 @@ class oxo_game(QWidget):
     # a slots called when "button_group" push buttons are clicked    
     def position_clicked(self,button):
         position_button_clicked=self.button_group.id(button)
-        self.user_feedback.setText("Button {} clicked".format(position_button_clicked+1))
+        self.user_feedback.insertPlainText("Button {} clicked\n".format(position_button_clicked+1))
+        self.user_feedback.moveCursor(QTextCursor.End)
         
     # a slots called when "Exit Game" push button is clicked
     def exit_clicked(self):
@@ -167,7 +169,8 @@ class oxo_game(QWidget):
     
     # a slots called when "Connect" push button is clicked
     def connect_clicked(self):
-        self.user_feedback.setText("Connect button clicked")
+        self.user_feedback.insertPlainText("Connect button clicked\n")
+        self.user_feedback.moveCursor(QTextCursor.End)
         
 def main():
     app=QApplication(sys.argv)
