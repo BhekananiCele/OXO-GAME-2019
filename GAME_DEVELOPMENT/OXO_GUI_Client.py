@@ -107,6 +107,21 @@ class oxo_game(QWidget):
         self.position8.setIcon(self.icon8)
         self.position8.setIconSize(QSize(80, 80))
         
+        colour=QLabel("Game Colour:")
+        colour.setStyleSheet('color: black')
+        colour.setFont(QFont("Arial",10,weight=QFont.Bold))
+        
+        #create colour Combo box
+        self.colour_combo=QComboBox()
+        #add items to the colour combo
+        self.colour_combo.addItem("Dark Cyan")
+        self.colour_combo.addItem("Yellow")
+        self.colour_combo.addItem("Red")
+        self.colour_combo.addItem("Cyan")
+        self.colour_combo.addItem("Blue")
+        self.colour_combo.setFont(QFont("Arial",10,weight=QFont.Bold))   # formating combo box      
+        self.colour_combo.setStyleSheet('color: darkblue')
+        
         grid_1=QGridLayout()#creates grid layout
         #adding widgets to the grid layout 
         grid_1.addWidget(server,0,0)
@@ -114,7 +129,9 @@ class oxo_game(QWidget):
         grid_1.addWidget(self.connect,1,1)
         grid_1.addWidget(your_shape_label,2,0)
         grid_1.addWidget(self.your_shape,2,1)
-        grid_1.addWidget(self.user_feedback,3,0,1,3)
+        grid_1.addWidget(colour,3,0)
+        grid_1.addWidget(self.colour_combo,3,1)
+        grid_1.addWidget(self.user_feedback,4,0,1,3)
         grid_1_widget=QWidget()
         grid_1_widget.setLayout(grid_1)
         
@@ -156,7 +173,11 @@ class oxo_game(QWidget):
         self.button_group.buttonClicked.connect(self.position_clicked)       
         self.exit.clicked.connect(self.exit_clicked)
         self.connect.clicked.connect(self.connect_clicked)
+        self.colour_combo.currentTextChanged.connect(self.combo_changed)
+        self.colour_combo.currentTextChanged.connect(self.combo_changed)
         
+    def combo_changed(self):
+        self.setPalette(QPalette(QColor(self.colour_combo.currentText())))           
     # a slots called when "button_group" push buttons are clicked    
     def position_clicked(self,button):
         position_button_clicked=self.button_group.id(button)
