@@ -1,5 +1,5 @@
 # OXO GAME 
-# Bhekanani Cele
+# Bhekanani Cele & Matthew Weppenaar
 # 08 April 2019
 
 import sys
