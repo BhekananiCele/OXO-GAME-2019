@@ -1,0 +1,9 @@
+For the OXO_GUI_Client to work as intended to please install the following python libraries:
+a) pyttsx3
+b) pywin32
+
+how to install these libraries:
+Step 1: open "command prompt"
+Step 2: type "pip install pyttsx3" and press enter
+Step 3: wait for the installation to complete once completed, type "pip install pywin32" and press enter
+step 4: Done!
